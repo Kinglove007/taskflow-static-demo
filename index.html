@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f6f7fb" />
+  <meta name="description" content="Daymark is a simple, beautifully focused daily task dashboard." />
+  <title>Daymark — Make today count</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <script src="./script.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Workspace navigation">
+      <a class="brand" href="./index.html" aria-label="Daymark home"><span class="brand-mark" aria-hidden="true">✳</span><span>daymark<span class="brand-dot">.</span></span></a>
+      <div class="sidebar-section-label">WORKSPACE</div>
+      <nav aria-label="Main navigation">
+        <a class="nav-link active" href="./index.html" aria-current="page"><span aria-hidden="true">▦</span> Overview <span class="nav-active-dot"></span></a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="sidebar-note"><span class="note-sparkle" aria-hidden="true">✦</span><strong>A little progress<br />every day.</strong><p>Small steps make remarkable things.</p></div>
+        <div class="profile"><span class="avatar" aria-hidden="true">Y</span><span><strong>Your workspace</strong><small>Personal dashboard</small></span><span class="profile-ellipsis" aria-hidden="true">···</span></div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar"><div class="breadcrumb">Workspace <span>/</span> <strong>Overview</strong></div><button id="themeToggle" class="theme-button" type="button" aria-label="Switch to dark theme" title="Toggle light and dark theme"><span id="themeIcon" aria-hidden="true">☾</span><span id="themeLabel">Dark mode</span></button></header>
+      <div class="content">
+        <section class="welcome" aria-labelledby="welcomeHeading"><div><span class="eyebrow"><span class="green-dot"></span> YOUR DAILY SPACE</span><h1 id="welcomeHeading">Make today count<span class="accent-dot">.</span></h1><p>A calm place to organize what's important and celebrate what gets done.</p></div><div class="date-pill" id="dateLabel" aria-label="Today's date"></div></section>
+
+        <section class="metrics" aria-label="Task statistics">
+          <div class="metric metric-featured"><div class="metric-top"><span>Total tasks</span><span class="metric-icon" aria-hidden="true">▤</span></div><div class="metric-number" id="totalCount">0</div><div class="metric-subtitle">Everything on your radar</div><div class="decor-circle decor-one"></div><div class="decor-circle decor-two"></div></div>
+          <div class="metric"><div class="metric-top"><span>In progress</span><span class="metric-icon amber" aria-hidden="true">◷</span></div><div class="metric-number" id="activeCount">0</div><div class="metric-subtitle">Keep the momentum going <span aria-hidden="true">↗</span></div></div>
+          <div class="metric"><div class="metric-top"><span>Completed</span><span class="metric-icon mint" aria-hidden="true">✓</span></div><div class="metric-number" id="completedCount">0</div><div class="metric-subtitle">Every win counts <span aria-hidden="true">✳</span></div></div>
+        </section>
+
+        <section class="progress-panel" aria-labelledby="progressHeading"><div class="progress-header"><div><span class="section-kicker">YOUR MOMENTUM</span><h2 id="progressHeading">Today's progress</h2><p id="progressDescription">Add your first task to get started.</p></div><div class="progress-value" id="progressValue">0%</div></div><div class="progress-track" role="progressbar" id="progressBar" aria-label="Tasks completed" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="progress-fill" id="progressFill"></div></div></section>
+
+        <section class="task-section" aria-labelledby="taskHeading"><div class="section-heading"><div><span class="section-kicker">GET THINGS DONE</span><h2 id="taskHeading">Your tasks <span class="heading-count" id="headingCount">0</span></h2></div><span class="autosaved"><span class="green-dot"></span> Saved automatically</span></div>
+          <form id="taskForm" class="add-task-form"><label class="sr-only" for="taskInput">New task</label><span class="add-icon" aria-hidden="true">＋</span><input id="taskInput" name="task" type="text" placeholder="What's on your mind today?" maxlength="140" required autocomplete="off" /><button type="submit" class="add-button">Add task <span aria-hidden="true">↗</span></button></form>
+          <div class="task-toolbar"><div class="tabs" role="group" aria-label="Filter tasks"><button class="tab active" type="button" data-filter="all" aria-pressed="true">All <span id="allTabCount">0</span></button><button class="tab" type="button" data-filter="active" aria-pressed="false">To do</button><button class="tab" type="button" data-filter="completed" aria-pressed="false">Completed</button></div><span id="taskViewLabel" class="task-view-label">0 tasks</span></div>
+          <ul id="taskList" class="task-list" aria-live="polite" aria-relevant="additions removals"></ul>
+          <div id="emptyState" class="empty-state" hidden><div class="empty-symbol" aria-hidden="true">✳</div><h3 id="emptyTitle">A fresh start</h3><p id="emptyDescription">Add a task above and let's get moving.</p></div>
+          <div class="task-footer"><span>Made for the little wins <span aria-hidden="true">✦</span></span><button id="clearCompleted" type="button" class="text-button">Clear completed</button></div>
+        </section>
+        <footer class="page-footer">DAYMARK <span>© <span id="year"></span></span> · Your day, your pace.</footer>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
